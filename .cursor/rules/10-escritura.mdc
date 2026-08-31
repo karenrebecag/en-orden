@@ -10,6 +10,7 @@ alwaysApply: false
 
 - Formato exacto: `- [ ] pendiente` y `- [x] hecha (2026-09-02)`.
 - Toda tarea hecha lleva su fecha entre parentesis. Sin fecha, la verificacion falla.
+- Toda fecha se escribe absoluta: `2026-09-15`, nunca "el jueves" ni "la proxima semana". Si la persona la dicta relativa, conviertela al escribirla: `/hoy` solo encuentra lo que puede leer como fecha.
 - Las tareas viven en `proyectos/` y `areas/`. Una tarea suelta en un recurso es una tarea perdida: muevela.
 - Empiezan con verbo y caben en una sesion.
 

@@ -20,6 +20,8 @@ El ciclo de cada turno lo cuida el sistema solo. Lo que nadie cuida solo es el p
 
 5. **Cierres a la vista.** Si un proyecto tiene los criterios a punto de cumplirse, proponlo para `/revisar`. Cerrar en la revision semanal es el mejor momento: la evidencia esta fresca.
 
+6. **Barrido completo.** Corre la skill `validar-vault` sobre el espacio entero, sin acotar a ningun archivo. Durante la semana las verificaciones solo miran lo que cada turno toca, para no detener a la persona por deuda que no causo; **este es el unico momento en que se mira todo**. Lo que salga se arregla ahora o se anota como bloqueo. Si nadie corre esta skill, esa deuda no la ve nadie.
+
 ## Reglas
 
 - Cada mudanza o borrado se dice en una linea antes de hacerlo. Es la memoria de la persona; tu solo la ordenas.

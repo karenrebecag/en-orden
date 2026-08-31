@@ -9,8 +9,7 @@ Aprender el ciclo completo de este espacio usandolo una vez de verdad, con cosas
 
 ## Criterio de cierre
 
-- Corriste `/hoy` y te propuso algo de este proyecto.
-- `entrada/` quedo vacia despues de correr `/ordenar` con al menos tres cosas tuyas dentro.
+- `entrada/` quedo vacia despues de correr `/ordenar` con al menos tres cosas tuyas dentro (las Notas de este proyecto dicen que se clasifico y a donde fue).
 - Existe en `proyectos/` un proyecto real creado con `/proyecto`, con criterio de cierre que se puede mirar.
 - Este archivo esta en `archivo/` (lo mueve `/cerrar` cuando todo lo de arriba se cumpla).
 

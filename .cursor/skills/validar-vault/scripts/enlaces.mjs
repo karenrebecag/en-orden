@@ -41,4 +41,12 @@ for (const file of files) {
   });
 }
 
+// El caso mas comun no es un error de dedo: es nombrar un archivo futuro al
+// escribir un criterio de cierre. La salida correcta no es obvia, asi que se dice.
+if (errors.some((e) => e.includes("[["))) {
+  console.log(
+    "pista: si el archivo aun no existe, escribelo sin corchetes (por ejemplo `recursos/nombre.md`) y conviertelo en [[enlace]] cuando lo crees. No borres la mencion.\n"
+  );
+}
+
 report(errors, `enlaces: ok (${files.length} archivos revisados)`);

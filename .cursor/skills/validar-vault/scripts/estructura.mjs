@@ -9,7 +9,7 @@ import { ROOT, CARPETAS, mdFiles, ilegibles, read, rel, report } from "./_util.m
 const errors = [];
 
 // 1. Archivos .md sueltos en la raiz: todo contenido vive en una carpeta.
-const ALLOWED_ROOT = new Set(["README.md", "SETUP.md", "AGENTS.md"]);
+const ALLOWED_ROOT = new Set(["README.md", "SETUP.md", "AGENTS.md", "CLAUDE.md"]);
 for (const name of readdirSync(ROOT)) {
   if (name.startsWith(".")) continue;
   if (!name.endsWith(".md")) continue;

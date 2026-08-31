@@ -24,7 +24,7 @@ const notes = SMELLS.filter((s) => s.pattern.test(added)).map((s) => s.note);
 
 // Un .md nuevo en la raiz casi siempre es un archivo que debia ir a una carpeta.
 const rel = relative(ROOT, filePath);
-const ALLOWED_ROOT = new Set(["README.md", "SETUP.md", "AGENTS.md"]);
+const ALLOWED_ROOT = new Set(["README.md", "SETUP.md", "AGENTS.md", "CLAUDE.md"]);
 if (rel.endsWith(".md") && !rel.includes("/") && !ALLOWED_ROOT.has(rel)) {
   notes.push("archivo suelto en la raiz: muevelo a entrada/, proyectos/, areas/ o recursos/");
 }

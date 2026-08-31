@@ -26,7 +26,7 @@ recursos/    la base de conocimiento, conectada con [[enlaces]]
 archivo/     lo terminado, con su evidencia
 ```
 
-`/hoy` propone el dia. `/ordenar` vacia la entrada. `/proyecto` obliga a definir como se ve terminado. `/avanzar` trabaja una tarea y se detiene. `/cerrar` solo archiva lo que cumple su criterio.
+`/hoy` propone el dia. `/ordenar` vacia la entrada. `/proyecto` obliga a definir como se ve terminado. `/avanzar` trabaja una tarea y se detiene. `/cerrar` solo archiva lo que cumple su criterio. `/semana` mantiene el espacio sano con el paso del tiempo: re-fecha lo vencido, nombra lo estancado y compacta la memoria. `/status` convierte el avance escrito en un reporte para compartir.
 
 ## La pieza que cierra el ciclo
 

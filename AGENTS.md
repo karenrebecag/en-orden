@@ -24,6 +24,8 @@ Nunca saltes de `/hoy` a `/avanzar` sobre algo que no tiene proyecto: sin criter
 | `/avanzar` | Una tarea por vez |
 | `/revisar` | Al terminar tareas o antes de cerrar |
 | `/cerrar` | Cuando el criterio de cierre se cumple |
+| `/semana` | Una vez por semana: fechas vencidas, proyectos estancados, compactar el estado |
+| `/status` | Antes de una junta o al compartir avance: reporte con solo lo que tiene evidencia |
 | `validar-vault` | Interna: corre las verificaciones del espacio |
 
 ## Subagentes

@@ -37,21 +37,34 @@ function runOne(name, command, maxOutputChars, timeoutMs) {
  * el tiempo para que el reporte siempre alcance a salir.
  * Un check sin comando definido se omite: la plantilla no asume nada.
  */
-export function runChecks(config, { only } = {}) {
+function quote(path) {
+  return `'${String(path).replace(/'/g, `'\\''`)}'`;
+}
+
+export function runChecks(config, { only, files } = {}) {
   const { blocking = [], advisory = [], maxOutputChars = 2000, timeBudgetMs = 120000 } =
     config.checks;
   const wanted = only ? [only] : [...blocking, ...advisory];
   const deadline = Date.now() + timeBudgetMs;
 
+  // Los bloqueantes se acotan a los archivos del turno: la deuda vieja de un
+  // archivo que nadie toco se reporta como aviso, pero no detiene el trabajo.
+  // Los advisory siempre miran el vault entero, que es su razon de ser.
+  const scope = Array.isArray(files) ? files.filter((f) => f.endsWith(".md")) : null;
+
   const results = [];
   for (const name of wanted) {
-    const command = (config.commands || {})[name];
-    if (!command || !command.trim()) {
+    const base = (config.commands || {})[name];
+    if (!base || !base.trim()) {
       results.push({ name, command: null, ok: true, skipped: true, output: "" });
       continue;
     }
     const remaining = deadline - Date.now();
     const isBlocking = blocking.includes(name);
+    const command =
+      isBlocking && scope && scope.length > 0
+        ? `${base} ${scope.map(quote).join(" ")}`
+        : base;
     if (remaining <= 0) {
       // Sin verificar no es lo mismo que en verde: un blocking sin tiempo cuenta como fallo.
       results.push({
@@ -83,7 +96,10 @@ export function formatReport(results) {
   return results
     .map((r) => {
       if (r.skipped) return `  ~ ${r.name}: sin comando configurado`;
-      const mark = r.ok ? "ok" : "FALLO";
+      if (r.ok) return `  ok ${r.name} (${r.ms}ms)`;
+      // Un aviso opcional junto a un fallo obligatorio se lee como dos fallos
+      // si no se distinguen. Solo el obligatorio detiene el turno.
+      const mark = r.blocking ? "FALLO (obligatorio)" : "aviso (opcional)";
       return `  ${mark} ${r.name} (${r.ms}ms)`;
     })
     .join("\n");

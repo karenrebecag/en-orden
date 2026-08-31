@@ -1,5 +1,5 @@
 import { basename } from "node:path";
-import { mdFiles, read, rel, report } from "./_util.mjs";
+import { mdFiles, alcance, acotar, read, rel, report } from "./_util.mjs";
 
 // Las tareas viven en proyectos/ y areas/. Dos invariantes:
 // 1. Toda casilla tiene formato valido: "- [ ]" o "- [x]".
@@ -13,7 +13,7 @@ const DATE = /\d{4}-\d{2}-\d{2}/;
 
 const errors = [];
 
-for (const file of mdFiles(["proyectos", "areas"])) {
+for (const file of acotar(mdFiles(["proyectos", "areas"]), alcance())) {
   if (basename(file) === "README.md") continue;
   read(file)
     .split("\n")

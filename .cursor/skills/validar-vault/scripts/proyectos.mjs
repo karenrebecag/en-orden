@@ -1,5 +1,5 @@
 import { basename } from "node:path";
-import { mdFiles, read, rel, report } from "./_util.mjs";
+import { mdFiles, alcance, acotar, read, rel, report } from "./_util.mjs";
 
 // Un proyecto sin criterio de cierre no se puede terminar, solo abandonar.
 // Blocking: es la seccion que /cerrar contrasta y la que separa esta plantilla
@@ -7,7 +7,7 @@ import { mdFiles, read, rel, report } from "./_util.mjs";
 
 const errors = [];
 
-for (const file of mdFiles(["proyectos"])) {
+for (const file of acotar(mdFiles(["proyectos"]), alcance())) {
   if (basename(file) === "README.md") continue;
   const text = read(file);
 

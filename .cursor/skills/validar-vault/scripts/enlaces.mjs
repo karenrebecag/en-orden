@@ -1,16 +1,21 @@
 import { existsSync } from "node:fs";
 import { basename, dirname, resolve } from "node:path";
-import { mdFiles, read, rel, report } from "./_util.mjs";
+import { CARPETAS, mdFiles, alcance, acotar, read, rel, report } from "./_util.mjs";
 
 // Un [[enlace]] roto es conocimiento perdido en silencio: la nota existe pero
 // nadie llega a ella. Blocking porque el agente que renombra o mueve un archivo
 // es el mismo que puede arreglar los enlaces en el mismo turno.
+//
+// El indice se construye SIEMPRE con el vault completo (incluido state/, que
+// enlaza a los proyectos activos): para saber si [[algo]] existe hace falta
+// verlo todo. Lo que el alcance acota es de que archivos se reportan errores.
 
-const files = mdFiles();
+const DIRS = [...CARPETAS, "state"];
+const files = mdFiles(DIRS);
 const index = new Set(files.map((f) => basename(f, ".md").toLowerCase()));
 const errors = [];
 
-for (const file of files) {
+for (const file of acotar(files, alcance())) {
   // El codigo inline (`asi`) y los bloques ``` son texto ilustrativo, no enlaces.
   let inFence = false;
   const lines = read(file).split("\n");

@@ -1,8 +1,10 @@
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { join, basename } from "node:path";
-import { ROOT, CARPETAS, mdFiles, read, rel, report } from "./_util.mjs";
+import { ROOT, CARPETAS, mdFiles, ilegibles, read, rel, report } from "./_util.mjs";
 
 // Advisory: desorden que no rompe nada hoy pero se acumula. Se avisa, no se bloquea.
+// Este validador revisa siempre el vault entero: ignora el alcance del turno a
+// proposito, porque su trabajo es justo mirar lo que nadie esta mirando.
 
 const errors = [];
 
@@ -11,7 +13,11 @@ const ALLOWED_ROOT = new Set(["README.md", "SETUP.md", "AGENTS.md"]);
 for (const name of readdirSync(ROOT)) {
   if (name.startsWith(".")) continue;
   if (!name.endsWith(".md")) continue;
-  if (statSync(join(ROOT, name)).isDirectory()) continue;
+  try {
+    if (statSync(join(ROOT, name)).isDirectory()) continue;
+  } catch {
+    continue; // lo reporta el aviso de archivos ilegibles
+  }
   if (!ALLOWED_ROOT.has(name)) {
     errors.push(`${name} esta suelto en la raiz: muevelo a entrada/, proyectos/, areas/ o recursos/`);
   }
@@ -83,6 +89,56 @@ for (const f of all) {
       `${rel(f)} no tiene ningun [[enlace]] ni nadie la enlaza: no se va a volver a encontrar. Enlazala desde el proyecto o area que la use`
     );
   }
+}
+
+// 6. Fechas relativas escritas a mano: /hoy y /semana buscan vencimientos y
+// solo encuentran fechas absolutas. "el jueves que viene" no lo encuentra nadie
+// y el compromiso se pierde sin que ninguna verificacion lo note.
+// Anclada al inicio del elemento: el formato documentado pone la fecha primero
+// ("- 2026-09-15 - pagar el predial"), asi que una fecha relativa ahi ocupa el
+// lugar de la fecha. A media frase casi siempre es lenguaje, no un compromiso:
+// "correr /hoy manana y empezar" no es una cita con el plomero.
+const RELATIVAS =
+  /^(hoy|manana|pasado manana|anteayer|la proxima semana|la semana que viene|el proximo mes|el mes que viene|(el|este|el proximo) (lunes|martes|miercoles|jueves|viernes|sabado|domingo)( que viene)?|en \d+ (dias|semanas|meses))\b/;
+const SIN_ACENTOS = (s) =>
+  s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+for (const f of mdFiles(["areas", "proyectos"])) {
+  if (basename(f) === "README.md") continue;
+  let seccion = "";
+  read(f)
+    .split("\n")
+    .forEach((rawLine, i) => {
+      const h = rawLine.match(/^##+\s+(.*)$/);
+      if (h) {
+        seccion = SIN_ACENTOS(h[1]);
+        return;
+      }
+      // Los bloques de tiempo son recurrencias, no compromisos con fecha.
+      if (/bloques? de tiempo|horario|rutina/.test(seccion)) return;
+      if (!/^\s*[-*]\s/.test(rawLine)) return;
+      const line = SIN_ACENTOS(rawLine);
+      if (/\d{4}-\d{2}-\d{2}/.test(line)) return; // ya tiene fecha absoluta
+      if (/\bcada\b/.test(line)) return; // recurrencia declarada
+      // Se quita la vineta y la casilla para ver con que empieza de verdad.
+      const cuerpo = line.replace(/^\s*[-*]\s+(\[[ x]\]\s+)?/, "");
+      if (RELATIVAS.test(cuerpo)) {
+        errors.push(
+          `${rel(f)}:${i + 1} fecha relativa que /hoy no puede encontrar: ${rawLine.trim().slice(0, 60)} — escribela como YYYY-MM-DD`
+        );
+      }
+    });
+}
+
+// 7. Lo que no se pudo leer. Suele venir de iCloud o Drive, que dejan
+// marcadores de descarga pendiente y copias en conflicto dentro de la carpeta.
+const noLeidos = ilegibles();
+if (noLeidos.length > 0) {
+  errors.push(
+    `hay ${noLeidos.length} archivo(s) que no se pudieron leer y quedaron fuera de la revision: ${noLeidos
+      .slice(0, 3)
+      .join(", ")}${noLeidos.length > 3 ? ", ..." : ""}. Suelen venir de iCloud o Drive: abre la carpeta en el Finder y borralos o descargalos`
+  );
 }
 
 report(errors, "estructura: ok");

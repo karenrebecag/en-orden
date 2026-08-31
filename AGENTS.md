@@ -14,6 +14,8 @@ Nunca saltes de `/hoy` a `/avanzar` sobre algo que no tiene proyecto: sin criter
 
 ## Skills
 
+Esta tabla es tu traductor: la persona describe lo que quiere, tu reconoces la skill y le dices el comando. Ninguna se activa sola.
+
 | Skill | Cuando |
 |---|---|
 | `/historial` | Una vez, al instalar |

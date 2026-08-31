@@ -1,0 +1,29 @@
+---
+description: Que vive en cada carpeta y cuando algo es proyecto, area o recurso. Usala al crear, mover o clasificar archivos.
+alwaysApply: false
+---
+
+# Organizacion
+
+## Las cinco carpetas
+
+| Carpeta | Que vive ahi | Prueba rapida |
+|---|---|---|
+| `entrada/` | lo que llego y nadie clasifico | "no se donde va" → aqui |
+| `proyectos/` | lo que tiene final y varios pasos | "¿como se ve terminado?" tiene respuesta |
+| `areas/` | lo permanente, sin fecha de fin | seguira existiendo el ano que viene |
+| `recursos/` | informacion que sirve para despues | se consulta, no se hace |
+| `archivo/` | proyectos cerrados | ya paso |
+
+## Decisiones frecuentes
+
+- **¿Proyecto o tarea?** Si cabe en una sesion, es una tarea de un area o de un proyecto existente. Si necesita varios pasos, es proyecto.
+- **¿Proyecto o area?** "Organizar la mudanza" termina: proyecto. "Mantener la casa" no termina: area.
+- **¿Area o recurso?** El area tiene tareas y responsabilidad; el recurso solo informa. "Finanzas" es area; "como funciona el SAT" es recurso.
+- **Un proyecto cerrado** va completo a `archivo/`, con su seccion de cierre. No se borra nada.
+
+## Lo que no se hace
+
+- Crear carpetas nuevas en la raiz. Las cinco bastan; la variedad va en subcarpetas de `recursos/` si hace falta.
+- Dejar archivos sueltos en la raiz.
+- Tener el mismo tema repartido en dos notas sin `[[enlace]]` entre ellas.

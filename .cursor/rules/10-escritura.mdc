@@ -1,0 +1,26 @@
+---
+description: Formato de notas, tareas y enlaces en los archivos markdown del espacio.
+globs: **/*.md
+alwaysApply: false
+---
+
+# Escritura
+
+## Tareas
+
+- Formato exacto: `- [ ] pendiente` y `- [x] hecha (2026-09-02)`.
+- Toda tarea hecha lleva su fecha entre parentesis. Sin fecha, la verificacion falla.
+- Las tareas viven en `proyectos/` y `areas/`. Una tarea suelta en un recurso es una tarea perdida: muevela.
+- Empiezan con verbo y caben en una sesion.
+
+## Notas
+
+- Titulo primera linea, `# Nombre`.
+- Una idea por nota en `recursos/`. Dos temas: dos archivos enlazados.
+- `[[Nombre]]` enlaza a la nota con ese nombre de archivo (sin .md). Enlaza generoso: una nota sin enlaces no se vuelve a encontrar.
+- Nombres de archivo en minusculas con guiones: `presupuesto-mudanza.md`.
+
+## Datos sensibles
+
+- Contrasenas, PINs, numeros de tarjeta completos: nunca en ninguna nota. Si la persona dicta uno, no lo escribas; dile que eso va en un gestor de contrasenas.
+- Datos medicos, legales o de terceros: solo si la persona lo escribio o lo pidio explicitamente, y jamas salen de esta carpeta.

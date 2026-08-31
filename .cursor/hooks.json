@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "node .cursor/hooks/session-start.mjs",
+        "timeout": 10
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": "node .cursor/hooks/guard-shell.mjs",
+        "timeout": 10,
+        "failClosed": true
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "node .cursor/hooks/track-edit.mjs",
+        "timeout": 10
+      }
+    ],
+    "stop": [
+      {
+        "command": "node .cursor/hooks/stop-gate.mjs",
+        "timeout": 180,
+        "failClosed": true,
+        "loop_limit": 4
+      }
+    ]
+  }
+}

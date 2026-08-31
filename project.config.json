@@ -1,0 +1,58 @@
+{
+  "vault": {
+    "nombre": "Mi espacio",
+    "carpetas": ["entrada", "proyectos", "areas", "recursos", "archivo"]
+  },
+  "commands": {
+    "enlaces": "node .cursor/skills/validar-vault/scripts/enlaces.mjs",
+    "tareas": "node .cursor/skills/validar-vault/scripts/tareas.mjs",
+    "proyectos": "node .cursor/skills/validar-vault/scripts/proyectos.mjs",
+    "estructura": "node .cursor/skills/validar-vault/scripts/estructura.mjs"
+  },
+  "checks": {
+    "blocking": ["enlaces", "tareas", "proyectos"],
+    "advisory": ["estructura"],
+    "maxOutputChars": 2000,
+    "timeBudgetMs": 120000
+  },
+  "versioning": "auto-git",
+  "guard": {
+    "enabled": true,
+    "rules": [
+      {
+        "id": "borrado-destructivo",
+        "permission": "deny",
+        "pattern": "^(rm|rmdir|shred|srm)\\b|^find\\b.*\\s-delete\\b|^trash\\b",
+        "reason": "Borrar con la terminal es irreversible. Lo terminado va a archivo/; borrar de verdad lo hace la persona a mano."
+      },
+      {
+        "id": "git-escritura",
+        "permission": "deny",
+        "pattern": "^git\\b.*\\s(commit|push|pull|merge|rebase|reset|clean|restore|stash|checkout)\\b",
+        "reason": "El historial lo escribe el sistema solo, cuando todo esta en verde. A mano, solo la persona."
+      },
+      {
+        "id": "salida-de-datos",
+        "permission": "deny",
+        "pattern": "^(curl|wget)\\b.*\\s(-d|--data\\S*|--upload-file|-T|-F)\\b|^(scp|sftp)\\b|^rsync\\b.*@|^(mail|mailx|sendmail)\\b",
+        "reason": "Nada de este espacio se envia fuera de la computadora."
+      },
+      {
+        "id": "instaladores",
+        "permission": "ask",
+        "pattern": "^(npm|pnpm|yarn|bun|pip3?|pipx|brew|gem|cargo)\\s+(i|install|add|remove|rm|uninstall|upgrade|update)\\b|^(npx|bunx)\\b|^(pnpm|yarn)\\s+dlx\\b",
+        "reason": "Instalar o ejecutar programas de internet cambia la computadora, no este espacio."
+      },
+      {
+        "id": "leer-secretos",
+        "permission": "deny",
+        "pattern": "\\.env(\\.|\\b)|~/\\.ssh|id_(rsa|ed25519)|\\.aws/credentials|/etc/passwd",
+        "reason": "Archivos con claves no se leen, no se muestran y no se copian."
+      }
+    ]
+  },
+  "protectedFiles": ["project.config.json", ".cursor/hooks.json"],
+  "entrada": {
+    "maxItems": 15
+  }
+}

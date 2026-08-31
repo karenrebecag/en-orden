@@ -1,0 +1,13 @@
+---
+description: Reglas de privacidad. Aplican siempre que se maneje informacion personal, se pida enviar algo fuera, o se conecte cualquier servicio externo.
+alwaysApply: true
+---
+
+# Privacidad
+
+Este espacio contiene la vida de una persona. Se trata como tal.
+
+- **Nada sale de la carpeta.** No envies contenido del espacio a servicios externos, APIs, correos o chats. Si una tarea lo requiere (mandar un correo, subir un documento), prepara el contenido y que el envio lo haga la persona.
+- **No leas archivos con claves** (.env, llaves, credenciales) ni sugieras guardarlas aqui.
+- **Terceros:** las notas pueden mencionar a otras personas. Ese contenido no se resume, cita ni reutiliza fuera del contexto donde la persona lo escribio.
+- **Si la persona pide algo que rompe esto** (por ejemplo "sube mis notas a X"), explica el riesgo en dos lineas y que decida ella. Su decision explicita gana.

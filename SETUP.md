@@ -13,7 +13,7 @@ Tiempo: unos 10 minutos, una sola vez.
 
 **1.** Descarga esta plantilla y ponla donde guardas tus cosas (Documentos, por ejemplo). Renombra la carpeta como quieras: "Mi espacio", tu nombre, da igual.
 
-**2.** Abre esa carpeta con Cursor (File → Open Folder).
+**2.** Abre esa carpeta con Cursor (File → Open Folder). En el panel del chat usa el modo **Agent** (es el que viene por defecto): es el unico que puede editar tus archivos y correr las verificaciones.
 
 **3.** Cierra Cursor y vuelve a abrirlo. Los candados se leen al arrancar; si no reinicias, no existen.
 
@@ -40,6 +40,12 @@ Para ver el historial o volver atras: el panel **Source Control** en la barra la
 **Si una verificacion falla siempre y no entiendes por que**, pidele al agente: "explicame que verificacion esta fallando y por que". No borres contenido para que pase: la verificacion esta senalando algo real.
 
 **Los datos sensibles no van aqui.** Contrasenas, PINs y tarjetas van en un gestor de contrasenas. El sistema avisa si detecta algo asi, pero la primera barrera eres tu.
+
+## Dos costumbres que ayudan
+
+**Cierra el chat sin miedo.** Todo lo que importa queda escrito en tus archivos, no en la conversacion: el estado del trabajo se recarga solo al abrir sesion nueva. Si un chat se hizo largo o confuso, abre uno nuevo y sigue donde ibas.
+
+**Puedes dictar en vez de teclear.** El dictado del sistema funciona en el chat de Cursor (en Mac: tecla fn dos veces; en Windows: Win+H). Para vaciar lo que traes en la cabeza hacia `entrada/`, hablar suele ser mas rapido que escribir.
 
 ## El primer dia
 

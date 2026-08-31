@@ -14,3 +14,4 @@ Thumbs.db
 *.log
 
 state/changed-files.json
+state/avisos.json

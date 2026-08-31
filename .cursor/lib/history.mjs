@@ -14,6 +14,34 @@ export function isRepo() {
 }
 
 /**
+ * Archivos del turno que perdieron muchas mas lineas de las que ganaron.
+ * Vaciar un archivo hace pasar cualquier verificacion, asi que "arregla la
+ * causa, no el sintoma" no puede ser solo una instruccion de texto. Esto no
+ * bloquea: compactar es legitimo (/semana lo hace), pero merece una linea de
+ * explicacion. Un borrado que acompana una reescritura no dispara.
+ */
+export function borradosGrandes(paths, { minimo = 10, maxAgregadas = 2 } = {}) {
+  if (!isRepo() || !paths || paths.length === 0) return [];
+  try {
+    const salida = git("diff", "--numstat", "HEAD", "--", ...paths);
+    return salida
+      .split("\n")
+      .map((linea) => linea.split("\t"))
+      .filter((cols) => cols.length >= 3)
+      .map(([agregadas, borradas, path]) => ({
+        path,
+        agregadas: Number(agregadas) || 0,
+        borradas: Number(borradas) || 0,
+      }))
+      // Se borro mucho y no se escribio nada en su lugar. Una reescritura que
+      // compacta (borra 24, deja 8) no entra: eso es trabajo, no vaciado.
+      .filter((f) => f.borradas >= minimo && f.agregadas <= maxAgregadas);
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Punto de restauracion automatico para quien no usa git.
  * Solo se llama cuando los checks pasaron, asi el historial no guarda estados rotos.
  */

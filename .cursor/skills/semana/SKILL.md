@@ -14,7 +14,7 @@ El ciclo de cada turno lo cuida el sistema solo. Lo que nadie cuida solo es el p
 
 2. **Proyectos estancados.** Todo proyecto sin tarea marcada en los ultimos 14 dias se nombra, uno por uno. Por cada uno la persona elige: seguir (y anotas en sus Notas que lo destrabo), partirlo en algo mas chico con `/proyecto`, o cerrarlo incompleto con `/cerrar`. Tu no eliges; tu obligas a elegir.
 
-3. **Decisiones.** En `state/workflow_state.md`: funde las repetidas, quita con permiso las que ya no aplican, y muda las que ya son costumbre estable al area que les toca (una regla sobre correos vive en el area de trabajo, no en el estado; deja el `[[enlace]]`). El archivo completo debe quedar **por debajo de 1500 caracteres**: es lo que entra en cada arranque de sesion, y lo que se pase se recorta.
+3. **Decisiones.** En `state/workflow_state.md`: funde las repetidas, quita con permiso las que ya no aplican, y muda las que ya son costumbre estable al area que les toca (una regla sobre correos vive en el area de trabajo, no en el estado; deja el `[[enlace]]`). El archivo completo debe quedar **por debajo de 1200 caracteres**. El limite duro es 1500 (lo que entra en cada arranque de sesion, y lo que se pase se recorta), pero apuntar a 1200 deja margen para que crezca durante la semana sin volver a chocar.
 
 4. **entrada/.** Si tiene elementos, la revision no cierra: propone `/ordenar` primero.
 

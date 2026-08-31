@@ -48,8 +48,11 @@ if (existsSync(entradaDir)) {
 // 4. workflow_state.md creciendo hacia el recorte: el arranque de sesion solo
 // inyecta 1500 caracteres, y lo que no entra se pierde en silencio. Se avisa
 // antes de llegar, para que /semana lo compacte con margen.
+// El aviso salta cerca del limite, no a media distancia: compactar y seguir
+// regañado es la forma mas rapida de que nadie vuelva a compactar. /semana
+// apunta mas abajo (1200) para dejar margen de crecimiento durante la semana.
 const STATE_BUDGET = 1500;
-const STATE_WARN = 1200;
+const STATE_WARN = 1400;
 const statePath = join(ROOT, "state", "workflow_state.md");
 if (existsSync(statePath)) {
   const len = readFileSync(statePath, "utf8").trim().length;

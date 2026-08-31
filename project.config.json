@@ -7,11 +7,12 @@
     "enlaces": "node .cursor/skills/validar-vault/scripts/enlaces.mjs",
     "tareas": "node .cursor/skills/validar-vault/scripts/tareas.mjs",
     "proyectos": "node .cursor/skills/validar-vault/scripts/proyectos.mjs",
-    "estructura": "node .cursor/skills/validar-vault/scripts/estructura.mjs"
+    "estructura": "node .cursor/skills/validar-vault/scripts/estructura.mjs",
+    "criterios": "node .cursor/skills/validar-vault/scripts/criterios.mjs"
   },
   "checks": {
     "blocking": ["enlaces", "tareas", "proyectos"],
-    "advisory": ["estructura"],
+    "advisory": ["estructura", "criterios"],
     "maxOutputChars": 2000,
     "timeBudgetMs": 120000
   },

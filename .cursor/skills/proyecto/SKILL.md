@@ -18,6 +18,8 @@ La plantilla exacta esta en `references/plantilla.md`. Leela antes de escribir.
    - Mal: "sentirme mejor con mis finanzas"
    - Bien: "el archivo areas/finanzas.md tiene los 4 gastos fijos con su monto y fecha de cobro, y existe recursos/presupuesto-2026.md con el presupuesto del mes firmado por mi"
    Si un criterio no se puede mirar, no es criterio: reescribelo con la persona hasta que lo sea.
+
+   Si la persona no quiere contestar preguntas y pide que lo escribas ya, escribelo, pero dile en una linea cual criterio no se va a poder verificar y que eso significa que el proyecto no va a poder cerrarse solo. Es su decision, no tuya; lo que no puedes es callartelo.
 4. Escribe el archivo en `proyectos/`, numerado: mira el numero mas alto que exista y suma uno (`03-mudanza.md`).
 5. Lee el resultado en voz alta (resumen de 5 lineas) y pregunta si asi es. No sigas a `/tareas` sin un si.
 

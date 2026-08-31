@@ -1,9 +1,11 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
-// CURSOR_PROJECT_DIR es la unica raiz fiable: los hooks de proyecto se ejecutan
-// desde la raiz, pero un script invocado a mano puede correr desde cualquier cwd.
-export const ROOT = process.env.CURSOR_PROJECT_DIR || process.cwd();
+// La raiz nunca se adivina desde el cwd: los hooks corren desde la raiz, pero un
+// script invocado a mano puede correr desde cualquier lado. Cada editor exporta
+// la suya; este espacio funciona en los dos, asi que se aceptan ambas.
+export const ROOT =
+  process.env.CURSOR_PROJECT_DIR || process.env.CLAUDE_PROJECT_DIR || process.cwd();
 
 const DEFAULTS = {
   vault: {

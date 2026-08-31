@@ -1,7 +1,9 @@
 import { readdirSync, readFileSync, statSync, existsSync } from "node:fs";
 import { join, relative, resolve, isAbsolute } from "node:path";
 
-export const ROOT = process.env.CURSOR_PROJECT_DIR || process.cwd();
+// Cada editor exporta su propia raiz; este espacio funciona en los dos.
+export const ROOT =
+  process.env.CURSOR_PROJECT_DIR || process.env.CLAUDE_PROJECT_DIR || process.cwd();
 export const CARPETAS = ["entrada", "proyectos", "areas", "recursos", "archivo"];
 
 // Un archivo que no se puede leer no puede tumbar la validacion entera: la

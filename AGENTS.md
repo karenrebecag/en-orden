@@ -19,6 +19,7 @@ Esta tabla es tu traductor: la persona describe lo que quiere, tu reconoces la s
 | Skill | Cuando |
 |---|---|
 | `/historial` | Una vez, al instalar |
+| `/migrar` | Una vez, si viene de otro sistema y ya dejo su export en `entrada/importado/` |
 | `/hoy` | Al empezar el dia |
 | `/ordenar` | Cuando entrada/ tiene elementos |
 | `/proyecto` | Antes de empezar algo con final y varios pasos |

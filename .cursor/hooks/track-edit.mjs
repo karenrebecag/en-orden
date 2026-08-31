@@ -8,7 +8,8 @@ const SMELLS = [
   { note: "casilla malformada", pattern: /^\s*[-*]\s*\[(?!( |x)\])[^\]]*\]/m },
   {
     note: "posible dato sensible en claro",
-    pattern: /(contrase[nñ]a|password|api[_-]?key|secret|token|pin|nip)\s*[:=]\s*\S{4,}/i,
+    // "clave" con guarda: "palabras clave: growth" es vocabulario de marketing, no un secreto.
+    pattern: /(contrase[nñ]a|password|(?<!palabras?\s)clave|api[_-]?key|secret|token|pin|nip)\s*[:=]\s*\S{4,}/i,
   },
 ];
 

@@ -16,6 +16,7 @@ alwaysApply: false
 ## Notas
 
 - Titulo primera linea, `# Nombre`.
+- Antes de crear una nota, busca si ya existe una del tema: agregar a la nota viva vale mas que duplicarla. Dos notas del mismo tema sin enlace es conocimiento partido en dos.
 - Una idea por nota en `recursos/`. Dos temas: dos archivos enlazados.
 - `[[Nombre]]` enlaza a la nota con ese nombre de archivo (sin .md). Enlaza generoso: una nota sin enlaces no se vuelve a encontrar.
 - Nombres de archivo en minusculas con guiones: `presupuesto-mudanza.md`.

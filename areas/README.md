@@ -10,6 +10,15 @@ Un area tiene tareas sueltas (`- [ ]`) y notas de mantenimiento. Cuando algo de 
 
 Lo que se repite (una junta semanal, un pago mensual) se anota con su **proxima** fecha y una nota de cada cuanto; al pasar, se re-fecha a la siguiente.
 
+## Reunion o recordatorio
+
+La diferencia importa porque se completan distinto:
+
+- Una **reunion** pasa a una hora. No se "termina": llega su fecha y ocurre. Va como linea suelta, y `/semana` la re-fecha si es recurrente.
+- Un **recordatorio** es algo que tienes que hacer antes de una fecha. Eso es una tarea, y va **con casilla**, para que al hacerlo lleve su fecha y quede el rastro: `- [x] 2026-09-15 - renovar la suscripcion (2026-09-14)`.
+
+Un recordatorio sin casilla no lo revisa nadie: las verificaciones solo miran casillas. Si lo escribes como linea suelta, el dia que lo hagas no habra donde marcarlo y solo quedara borrarlo, que es perder la historia.
+
 Ejemplo de un area de trabajo:
 
 ```markdown
@@ -17,11 +26,12 @@ Ejemplo de un area de trabajo:
 
 ## Reuniones
 
-- 2026-09-03 10:00 — Junta con direccion. Llevar status del mes. (cada jueves)
+- 2026-09-03 10:00 — Junta con direccion. Llevar status del mes. (cada primer jueves)
 
 ## Recordatorios
 
-- 2026-09-15 — Vence la suscripcion de la herramienta X. Avisar una semana antes.
+- [ ] 2026-09-15 - renovar la suscripcion de la herramienta X, avisar a pagos una semana antes
+- [x] 2026-08-10 - mandar la factura de julio (2026-08-31)
 
 ## Bloques de tiempo
 

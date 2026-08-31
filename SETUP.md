@@ -21,11 +21,14 @@ explicame cada paso en una linea y sin palabras raras.
 4. Corre las cinco verificaciones que estan en project.config.json y dime si
    el espacio quedo sano.
 5. Lee AGENTS.md y dime en cinco lineas que es esto y como se usa.
+6. Al final, abre esa carpeta en Cursor por mi. En Mac es
+   `open -a Cursor "Mi espacio"`; si tengo el comando `cursor` instalado,
+   `cursor "Mi espacio"` tambien sirve. Si no se puede, dime como abrirla a mano.
 
 No cambies el contenido: solo descargalo, preparalo y verificalo.
 ```
 
-Cuando termine, **abre esa carpeta con Cursor** y sigue desde el paso 2 de aqui abajo. Los candados que impiden que el agente borre o mande tus cosas fuera son de Cursor: hasta que la abras ahi, tienes las carpetas y las skills, pero no las protecciones.
+Cuando termine puedes quedarte donde estes: **el espacio funciona igual en Claude Code y en Cursor**, con los mismos candados y las mismas verificaciones. Si te quedas en la terminal, sigue desde "El primer dia" al final de esta pagina; si prefieres Cursor, sigue desde el paso 2 de aqui abajo.
 
 ## Que necesitas
 

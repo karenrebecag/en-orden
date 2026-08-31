@@ -40,8 +40,13 @@ Borrar con la terminal, enviar tu contenido fuera de la computadora, mover archi
 
 Esto detiene el descuido, no la intencion. La copia de seguridad externa sigue siendo tuya.
 
+## Funciona en Cursor y en Claude Code
+
+El mismo espacio, los mismos candados. La logica vive una sola vez en `.cursor/lib/` y cada editor pone un adaptador que traduce su protocolo de hooks; las skills son las mismas por un enlace. Dos copias serian dos sistemas distintos, y el dia que uno se actualizara y el otro no, el que se quedara atras seria una mentira.
+
 ## Referencias
 
 - Cursor: [Rules](https://cursor.com/docs/context/rules), [Hooks](https://cursor.com/docs/agent/hooks), [Skills](https://cursor.com/docs/skills), [Subagents](https://cursor.com/docs/agent/subagents)
+- Claude Code: [Hooks](https://code.claude.com/docs/en/hooks-guide), [Skills](https://code.claude.com/docs/en/skills)
 - El modelo de carpetas adapta [PARA](https://fortelabs.com/blog/para/) (Tiago Forte)
 - El criterio de cierre verificable viene del spec-driven development: [GitHub Spec Kit](https://github.com/github/spec-kit)

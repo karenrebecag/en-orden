@@ -4,6 +4,29 @@ Escrito para alguien que no programa. Si algo no se entiende, es un fallo de est
 
 Tiempo: unos 10 minutos, una sola vez.
 
+## Atajo: que te lo instale Claude Code
+
+Si ya tienes Claude Code en la terminal, pegale esto y hace los pasos 1 a 5 solo:
+
+```
+Descargame y preparame un espacio de orden personal. No soy tecnica:
+explicame cada paso en una linea y sin palabras raras.
+
+1. Comprueba que tengo Node y Git instalados. Si falta alguno, dime como
+   instalarlo y detente ahi.
+2. Descarga https://github.com/karenrebecag/en-orden dentro de mis Documentos,
+   en una carpeta nueva llamada "Mi espacio".
+3. Borra el historial que trae de fabrica y empieza uno mio, con un primer
+   punto de restauracion.
+4. Corre las cinco verificaciones que estan en project.config.json y dime si
+   el espacio quedo sano.
+5. Lee AGENTS.md y dime en cinco lineas que es esto y como se usa.
+
+No cambies el contenido: solo descargalo, preparalo y verificalo.
+```
+
+Cuando termine, **abre esa carpeta con Cursor** y sigue desde el paso 2 de aqui abajo. Los candados que impiden que el agente borre o mande tus cosas fuera son de Cursor: hasta que la abras ahi, tienes las carpetas y las skills, pero no las protecciones.
+
 ## Que necesitas
 
 1. **Cursor**, desde [cursor.com](https://cursor.com). Es un editor con un agente de IA dentro; aqui lo usaras para tu vida, no para programar.

@@ -21,6 +21,7 @@ Hazte estas preguntas y detente en la primera que aplique:
 ## Reglas
 
 - Un elemento a la vez, en el orden en que estan. Di a donde lo mandas y por que, en una linea.
+- Borra el elemento clasificado con la herramienta de archivos del editor, nunca con la terminal: `rm` esta bloqueado a proposito y el candado no distingue tus intenciones.
 - Si dudas entre dos destinos, pregunta. Una nota bien archivada en el lugar equivocado esta perdida igual.
 - Al mover contenido, actualiza los `[[enlaces]]` que apunten a el.
 - Al terminar, `entrada/` queda vacia (solo su README) y lo dices explicitamente.

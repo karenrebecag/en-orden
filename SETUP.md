@@ -21,7 +21,41 @@ Tiempo: unos 10 minutos, una sola vez.
 
 **5.** En el chat, escribe `/historial`. Activa los puntos de restauracion. Lee la seccion de abajo antes.
 
-**6.** Abre `proyectos/00-empezar-aqui.md`. Es tu primer proyecto y te guia por el resto.
+**6.** Copia el mensaje de aqui abajo y pegalo en el chat. Es lo unico que tienes que escribir para empezar.
+
+## El primer mensaje
+
+Pegalo tal cual. Borra la linea que no sea tu caso:
+
+```
+Este espacio es mi sistema de orden personal, no un proyecto de programacion.
+Lee AGENTS.md antes de contestarme.
+
+Dime primero, en una linea cada cosa y sin palabras tecnicas:
+1. Si la instalacion quedo bien y los candados estan puestos.
+2. Si el historial esta encendido.
+
+Despues:
+- Vengo de otro sistema (Notion, Obsidian, notas del telefono, carpetas): dime como lo traigo.
+- No traigo nada, quiero empezar de cero: dime que hago primero.
+
+No soy tecnica. Explicame como si nunca hubiera usado un asistente de IA,
+una cosa a la vez, y esperame antes de seguir a lo siguiente.
+```
+
+El agente te va a contestar con el siguiente paso. Si empiezas de cero te llevara a `proyectos/00-empezar-aqui.md`, que es tu primer proyecto y te hace recorrer el ciclo completo una vez.
+
+## Si ya tenias tus cosas en otro lado
+
+No hace falta abandonarlas ni copiarlas a mano. El agente las clasifica contigo con `/migrar`.
+
+Antes de correrlo, trae el material tu misma (por seguridad, ningun comando puede meter ni sacar archivos de esta carpeta):
+
+1. Exporta tu sistema viejo a Markdown o texto. En Notion: `Export → Markdown & CSV`. En Obsidian ya son archivos. De las notas del telefono, copiar y pegar sirve.
+2. En el Finder (o el Explorador), arrastra esa carpeta **dentro de `entrada/`** y llamala `importado`.
+3. En el chat escribe `/migrar`.
+
+Va por partes, te pregunta antes de decidir, y **no migra todo**: lo vacio, lo duplicado y lo muerto se queda fuera y te dice que dejo. Tu sistema viejo no se toca: esto lo copia, no lo mueve.
 
 ## Sobre el historial
 
